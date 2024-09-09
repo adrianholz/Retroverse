@@ -1,0 +1,279 @@
+.userPanel {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 20px;
+  overflow-y: hidden;
+  .stats {
+    border-radius: 10px;
+    background: linear-gradient(
+      to bottom right,
+      rgba(35, 35, 35, 0.85),
+      rgba(22, 22, 22, 0.65)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px 18px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #aaa;
+
+    font-weight: 500;
+    outline: none;
+  }
+
+  .buttons {
+    width: 100%;
+    margin-top: 40px;
+    max-width: 440px;
+    left: 20px;
+    bottom: 20px;
+  }
+  .title {
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    animation: appear 0.5s ease;
+
+    img {
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    h1 {
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    }
+    p {
+      max-width: 280px;
+    }
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    .stat {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      animation: appear 0.5s ease;
+
+      gap: 8px;
+      h3 {
+        color: #eee;
+      }
+      span {
+        font-size: 1.125rem;
+      }
+    }
+    .statsSection {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    > span {
+      display: block;
+      width: 1px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+  .recentGames {
+    margin-top: 40px;
+    transform: translateX(-20px);
+    width: 100%;
+    max-width: 480px;
+    > h2 {
+      color: #fff;
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin: 0 0 10px 20px;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+    }
+    .games {
+      display: flex;
+      flex-direction: column;
+      height: 240px;
+      overflow: auto;
+      gap: 20px;
+      padding: 0 20px 20px 20px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .game {
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+        max-width: 440px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        animation: appear 0.5s ease;
+        .completedGame {
+          position: absolute;
+          z-index: 10;
+          width: 50px;
+          top: 10px;
+          filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8));
+        }
+        .gameInfo {
+          color: #aaa;
+          display: flex;
+          gap: 20px;
+          padding: 20px;
+          backdrop-filter: brightness(0.4) blur(6px);
+          text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+          > img {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 96px;
+            object-fit: cover;
+          }
+          > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+          h2 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.25rem;
+            line-height: 1.55rem;
+          }
+          h3 {
+            color: #aaa;
+            font-size: 0.9rem;
+            font-weight: 500;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+          span {
+            color: #eee;
+            font-weight: 600;
+          }
+        }
+      }
+      .noRecent {
+        color: #aaa;
+        margin-top: 18px;
+        animation: appear 0.5s ease;
+      }
+    }
+  }
+  .recentAchievements {
+    margin-top: 40px;
+    width: 100%;
+    > h2 {
+      color: #fff;
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+    }
+    .achievements {
+      border-radius: 10px;
+      background: linear-gradient(
+        to bottom right,
+        rgba(35, 35, 35, 0.85),
+        rgba(22, 22, 22, 0.65)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 16px 18px;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: 500;
+      max-height: 240px;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+      gap: 20px 31px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .achievement {
+        position: relative;
+        animation: appear 0.5s ease;
+      }
+      img {
+        max-height: 64px;
+        max-width: 64px;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+      .achievementBorder {
+        position: absolute;
+        left: -18px;
+        top: -18px;
+        mix-blend-mode: lighten;
+        pointer-events: none;
+        filter: saturate(150%);
+      }
+      .noRecent {
+        animation: appear 0.5s ease;
+      }
+    }
+    .tooltip {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      pointer-events: none;
+      z-index: 1000;
+      max-width: 240px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      p:nth-child(2) {
+        font-size: 6rem;
+        position: absolute;
+        right: 10px;
+        top: -20px;
+        color: #ffffff20;
+        font-weight: 700;
+        z-index: -1;
+      }
+      p:nth-child(3) {
+        font-size: 0.85rem;
+        color: #aaa;
+      }
+      p:nth-child(4),
+      p:nth-child(5) {
+        margin-top: 8px;
+        color: #eee;
+        font-size: 0.75rem;
+      }
+      p:nth-child(5) {
+        color: #aaa;
+        margin-top: 0;
+      }
+    }
+    .tooltip.fade-in {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+    .tooltip.fade-out {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

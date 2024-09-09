@@ -1,0 +1,187 @@
+{
+  "home": {
+    "en-us": {
+      "welcome": "Welcome to the",
+      "title": "Retroverse",
+      "login1": "Please provide your",
+      "login2": "Retroachievements",
+      "login3": "username",
+      "login4": "to have the best experience on Retroverse.",
+      "placeholder": "Username",
+      "button1": "Login",
+      "loading": "Loading...",
+      "button2": "View library",
+      "madeBy": "Made with love by",
+      "credits": "Andrix Design is an initiative that aims for the delivery of groundbreaking design and user experience.",
+      "button3": "Visit website",
+      "button4": "Donate"
+    },
+    "pt-br": {
+      "welcome": "Bem-vindo ao",
+      "title": "Retroverso",
+      "login1": "Por favor insira o seu usuário do",
+      "login2": "Retroachievements",
+      "login4": "para ter a melhor experiência no Retroverso.",
+      "placeholder": "Nome de usuário",
+      "button1": "Entrar",
+      "loading": "Carregando...",
+      "button2": "Ver biblioteca",
+      "madeBy": "Feito com amor por",
+      "credits": "Andrix Design é uma iniciativa que tem o objetivo de entregar design e experiência de usuário excepcionais.",
+      "button3": "Visitar website",
+      "button4": "Fazer doação"
+    }
+  },
+  "loading": {
+    "en-us": {
+      "title": "Retroverse"
+    },
+    "pt-br": {
+      "title": "Retroverso"
+    }
+  },
+  "userInfo": {
+    "en-us": {
+      "morning": "Good morning,",
+      "afternoon": "Good afternoon,",
+      "evening": "Good evening,",
+      "noMotto": "No motto."
+    },
+    "pt-br": {
+      "morning": "Bom dia,",
+      "afternoon": "Boa tarde,",
+      "evening": "Boa noite,",
+      "noMotto": "Sem lema."
+    }
+  },
+  "recentGames": {
+    "en-us": {
+      "title": "Recent Activity",
+      "outOf": "out of",
+      "unlocked": "unlocked",
+      "noRecent": "No recent games found."
+    },
+    "pt-br": {
+      "title": "Atividade Recente",
+      "outOf": "de",
+      "unlocked": "desbloqueados",
+      "noRecent": "Jogos recentes não encontrados."
+    }
+  },
+  "statsSection": {
+    "en-us": {
+      "joined": "First Joined",
+      "points": "Total Points",
+      "rank": "Retrorank",
+      "noRank": "No rank",
+      "awards": "Total Awards",
+      "games": "Beaten Games",
+      "mastered": "Mastered Games"
+    },
+    "pt-br": {
+      "joined": "Membro Desde",
+      "points": "Pontos Totais",
+      "rank": "Retrorank",
+      "noRank": "Sem rank",
+      "awards": "Prêmios Totais",
+      "games": "Jogos completos",
+      "mastered": "Jogos Masterizados"
+    }
+  },
+  "recentAchievements": {
+    "en-us": {
+      "title": "Recent Achievements"
+    },
+    "pt-br": {
+      "title": "Conquistas Recentes"
+    }
+  },
+  "buttons": {
+    "en-us": {
+      "logout": "Logout",
+      "library": "View library"
+    },
+    "pt-br": {
+      "logout": "Sair",
+      "library": "Ver biblioteca"
+    }
+  },
+  "globalSettings": {
+    "en-us": {
+      "title": "Settings",
+      "music": "Music",
+      "sfx": "Sfx",
+      "activeEmulators": "Active Emulators",
+      "inactiveEmulators": "Inactive Emulators",
+      "screen": "Screen",
+      "fullscreen": "Fullscreen",
+      "windowed": "Windowed",
+      "language": "Language",
+      "close": "Close",
+      "save": "Save & Close"
+    },
+    "pt-br": {
+      "title": "Configurações",
+      "music": "Música",
+      "sfx": "Efeitos",
+      "activeEmulators": "Emuladores Ativos",
+      "inactiveEmulators": "Emuladores Inativos",
+      "screen": "Tela",
+      "fullscreen": "Tela cheia",
+      "windowed": "Em janela",
+      "language": "Idioma",
+      "close": "Fechar",
+      "save": "Salvar & Fechar"
+    }
+  },
+  "emulators": {
+    "en-us": {
+      "title": "Emulators"
+    },
+    "pt-br": {
+      "title": "Emuladores"
+    }
+  },
+  "emulatorRoms": {
+    "en-us": {
+      "library": "Your library",
+      "play": "Let's play!",
+      "noGames": "No games found",
+      "noROMs": "No ROMs were found for the",
+      "match": "No ROMs matching",
+      "found": "were found for the",
+      "check": "Check if",
+      "present": "is present anywhere on",
+      "ifNot": "If not, please",
+      "dat": ".dat might be missing or corrupted.",
+      "scrape1": "Please",
+      "scrape2": "scrape for games",
+      "scrape3": "and reload this page."
+    },
+    "pt-br": {
+      "library": "Sua biblioteca",
+      "play": "Vamos jogar!",
+      "noGames": "Nenhum jogo encontrado",
+      "noROMs": "Nenhum ROM foi encontrado para",
+      "match": "Nenhum ROM que corresponde a",
+      "found": "foi encontrado para",
+      "check": "Verifique se",
+      "present": "está presente no arquivo",
+      "ifNot": "Se não, por favor",
+      "dat": ".dat pode estar faltando ou estar corrompido.",
+      "scrape1": "Por favor",
+      "scrape2": "faça um scrape dos jogos",
+      "scrape3": "e recarregue esta página."
+    }
+  },
+  "skraper": {
+    "en-us": {
+      "skraper": "Skraper",
+      "running": "is running. Hang tight!"
+    },
+    "pt-br": {
+      "skraper": "Skraper",
+      "running": "está executando. Aguente firme!"
+    }
+  }
+}

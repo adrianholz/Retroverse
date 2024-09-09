@@ -1,0 +1,293 @@
+Skraper 1.1.1:
+- Addded support for zipped gamelists
+- Hidden the overlays menu for the time beeing.
+- Fixed bug with the carriage return not beeing serialized for Retropie and Recalbox.
+- Fixed a bug where the null values were still serialized
+
+Skraper 1.1.0:
+- Added warnings while downloading ressources
+- Added GUI errors when ScreenScraper returns one
+- Added support for new Recal-EmulationStation tags (adult & normalized genres)
+- Added gui for ScreenScraper rate limits
+- Added gui for the cached requests
+- Added support for p2k configuration, for Recalbox only.
+- Added an infinite TTL setting.
+- Added the support for normalized videos
+- Fixed the abort time. Now it usually takes less than a second every time.
+- Fixed a bug where the cache is still activated when it is desactivated in the settings.
+
+Bêta 8:
+- Added media found percent during scraping
+- Added in user mixes:
+  - Added TextOutlineWidth (0-3 pixels) & TextOutlineColor.
+    - Default outline (if not explicitly set) width depends of image height
+    - Default color (if not explicitly set) is inverted font color
+  - Added %MINPLAYERS% & %MAXPLAYERS% variables.
+  - All text variables can be used in local filenames
+  - Added "barrel" effet in user mix to give images an old CRT look
+  - Added "else" sub-object, executed when current item is filtered by conditionnals
+  - Added new resources available in user mixes:
+    - Game Genres (up to 3) :
+      - Genre1Picto
+      - Genre2Picto
+      - Genre3Picto
+      - Genre1MonochromeLogo
+      - Genre2MonochromeLogo
+      - Genre3MonochromeLogo
+    - Developer / Publisher logos:
+      - DeveloperLogo
+      - DeveloperMonochromeLogo
+      - PublisherLogo
+      - PublisherMonochromeLogo
+- Added verbose logs to help debugging region selection
+- Ignore unix-like hidden folder (works also on windows)
+- Optimized distortion/projection algorithm (20 times)
+- Fixed <hash> node in retropie gamelist.xml
+- Fixed file count in scraped folder names
+- Fixed media path when scraping sub-folders
+- Fixed RecalboxV1/V2 mix size to the recomended 745x745 pixels
+- Fixed ScreenMarquee/Arcade Marquee texts and sample image
+- Fixed update list option for EmulationStation gamelist.xml
+- Fixed incomplete name decorations
+- Fixed gamelist "Backup and update" behavior
+- Fixed Large file hash cache
+- Removed Patchworked folders
+- Default gamelist behavior set back "Backup and Overwrite"
+
+Bêta 7:
+- Improved wizard ergonomy
+- Improved UI responsiveness while scraping from local cache
+- improved internal 2-5 image mixes (default screenshot/box + text wheel)
+- Added non-recalbox/retropie rom folder detection in the wizard
+- Moved default gamelist creation mode from "Backup, then overwrite" to "Backup, then update"
+- Unknown/Custom XML nodes in gamelist are loaded and saved unmodified and are no more removed.
+- Systems are sorted (by folders) on next launch.
+- Portuguese translations updated
+- Italien translations updated
+- French translations updated
+- Mix's long name displayed intead of file name, in media buttons
+- Optimized media deletion
+- Added option "Use regions from filename when possible" in metadata tab
+- Added warning when running a scrape with no system configured
+- Added system reset to default settings (expert mode, misc tab)
+- Added thumbnail for EmulationStation
+- Added system medias in user mixes:
+  - SystemBezel43
+  - SystemBezel169
+  - SystemWheel
+  - SystemCarbonWheel
+  - SystemSteelWheel
+  - SystemMonochromeLogo
+  - SystemIcon
+  - SystemIconMini
+  - SystemPhoto
+  - SystemPicture
+  - SystemControllerPhoto
+  - SystemScreenMarquee
+  - SystemWallPaper
+- Added text capabilities in user mixes
+  - Default mixes have a text fallback for wheels
+- Added image color effect in user mixes: Black & White, Sepia & Green Gameboy
+- Added Image distortion and projection in user mixes
+  - Converted "Arcade Moon (Zoomed)" from UXS to Skraper format (thanks to Supernature2k from Recalbox team)
+  - Added "Arcade Sun", a new arcade-cabinet based mix with HD images
+  - Added "Arcade Home", a new home-cabinet based mix with HD images
+  - Added lots or demo and mixes you can freely modify to suit your needs
+- Added Hashing cache for file larger than 20Mb (including files in archive). Rescrap your CD/DVD collection faster!
+- Changed the internal Media flow to increase efficientcy and decrease required resources
+  - Faster & requires less memory
+  - Keep original image format (png/jpg)
+- Fixed cache clearing for individual system
+- Fixed write error while doing a full-cache scrape
+- Fixed user mix file selector keep asking for JSON files
+- Fixed bottom ProgressBars not reset after scraping
+- Fixed image resizing in Media
+- Fixed "scraping aborted" with no error when reading incorrect non-standard gamelist.xml
+- Preliminar Linux/MacOS compatibility
+  - This version *SHOULD* start working on Linux (Quickly tested) and MacOSX (Untested).
+  - This must be considered as an ALPHA versoin for Linux, and I *KNOW* there are still graphic glitches & probably random crashes.
+  - Anyway, you can report anomalies on ScreenScraper's Discord or IRC.
+  - Mono 4.6.2 required, or WINE Mono with Framework 4.5 minimum installed.
+
+Bêta 6:
+- Added option to keep undecorated filenames as final game names
+- Added option to keep filename decorations in final game names
+- Added media folder cleanup option (recommended when using "Optimize media storage", set by the Wizard)
+- Added new DOS/ScummVM scraping method in collaboration with ScreenScraper.
+- Added Favorites/Hidden counters & removed unused bandwidth graph
+- Added global progression in windows taskbar
+- Added Checkbox to explicitely kill the FrontEnd before saving list
+- Added option to ignore game synopsis (Advanced mode only - decrease gamelist size for theme without synopsis)
+- Added region strict mode (Advanced mode only). When checked, Skraper fetch text/media belonging strictly to the provided region list. No world or default region fallback.
+- Changed the way articles moves: from "Game Name (The)" to "Game Name, The"
+- Changed the User Mix file format from JSON to XML. JSON is no longuer supported.
+  * Documentation is only available in french - Use google translator until the english version is available
+  * An XSD Schema is available at https://www.skraper.net/ImageComposition.xsd for validation/auto-completion/quick-ref doc
+- Changed hidden/favorite priority: if a game is hidden AND favorite, it ends hidden.
+- Improved "filename" matching method.
+- Removed WORLD in region decoration when other regions are available
+- Removed FCRC files (replaced with ScreenScraper "Serial" file format, *much* better)
+- Fixed several LaunchBox platform issues
+- Fixed hidden & favorites default value appearing in EmulationStation gamelist.xml
+- Fixed non working topstaff auto-favorite
+- Fixed false errors when loading use mix with LocalFils
+- Fixed double '&' (in Game & Watch)
+- Fixed support #1 with single-disk games
+- Fixed non-scrapped not appearing in game lists whatever option you choosed
+- Fixed non-disabled checkboxes in gamelist options (expert) when "All systems" not selected
+- Fixed non-working log settings in every single system (verbose & file)
+- Fixed non-working .dat generation when using create instead of update
+- Fixed non-working auto-hidde/favorites
+- Fixed zero'd hash in FCRC/Serial files
+- Fixed empty FCRC/Serial files
+- Fixed article moved after decorations
+- Fixed media saved for excluded files
+- Fixed missing '+' sign in ES gamelist's media nodes
+- Fixed supports > 1 not scraped with the corresponging support media
+- Fixed loop errors when running out of disk space
+Note 1 : Since there have been lots of changes in this release, you're strongly encouraged to start the Wizard again
+         to adjust automatially new settings.
+Note 2 : In order to scrape DOS (or Win3.xx available on ScreenScraper too) games properly, you must:
+  - Put pc(exe|com|iso|bin|mdf|img|gog|dsk|z5|z8|bas|dat),dos(exe|com|iso|bin|mdf|img|gog|dsk|z5|z8|bas|dat),wad in dos extensions
+    (or  pc(exe|dll|com|iso|bin|mdf|img),dos(exe|dll|com|iso|bin|mdf|img) in win3.xx extensions)
+  or
+  - Delete Cache\0\JSON.SYSTEMLIST (just to be sure to get latest system configurations)
+  - Delete/create DOS platform or run the wizard again.
+
+
+Bêta 5:
+- Added Italian language (thanks to tommy``)
+- Added auto-hide file extensions
+- Added missing retropie folders
+- Added "Clone Type" in name décorations (default for Arcade systems)
+- Added Top of ScreenScraper's staff auto-favorite option
+- Added MAME clones to Launchbox/Generic emulation detected folders
+- Added editable LaunchBox platform name in "Games & Roms" tab. Auto-filled with ScreenScraper information if empty.
+- Added %LAUNCHBOXPLATFORM% variable tu use LaunchBox platform name.
+- Added %PLATFORM%, a generic name replaced with the most appropriate content (%SCREENSCRAPERPLATFORM% or %LAUNCHBOXPLATFORM%)
+  (Launchbox users should replace %SCREENSCRAPERPLATFORM% variable manually, or use the wizard to regenerate the configuration)
+- Added command line option: -culture=<culture> to change the language used in skraper (supported cultures are: fr, en, pt, es, it)
+- Added Landscape/Portrait filters in user mix + Child system
+- Added English & French User Mix documentation (thanks to Archangel54 for testing & writting the documentation)
+- Changed file/folder selector buttons
+- Improved filtering system in UserMix (parent system and all childrens can be filtered)
+- Improved wizard configuration and manually added systems
+- Fixed game list file not changing when changing the game list type
+- Fixed media output path not changing when changin media type
+- Fixed crash when switching theme in the wizard
+- Fixed XML output file edit not saving its content
+- Fixed cache cleaning for "All Systems"
+- Fixed missing system button refresh when changing rom folder
+- Fixed gamelist scrollbar in expert mode
+- Fixed ScreenMarquee/ScreenMarqueeSmall to <marquee> node for Retropie's gamelist.xml
+- Fixed missing PT translations (thanks azvarel)
+- Fixed non transparent user mix sample images (DC Shenmue recalbox mix v1/v2 & MD Sonic recalbox mix v1)
+
+Bêta 4 - Hotfix1:
+- Fixed auto-update failure when adding new files
+
+Bêta 4:
+- Added Basic/Expert mode
+  - Moved Cache TTL & HTTP Retries to Expert mode
+  - Moved FrontEnd & Gamelist type selection to Expert mode
+  - Added Hide/Exclude filtering on rom tags in Expert mode (demo, beta, hack, ...)
+  - Added Hide/Exclude filtering by regions in Expert mode
+  - Added Hide/Exclude filtering for multi-supports in Expert mode
+  - Added cache management in Expert Mode (PLEASE, DELETE THE CACHE FOLDER MANUALLY ONCE)
+- Added Local files per system selection in usermix
+- Added system filtering (include/exclude patterns) in usermix
+- Added sample media cycling (Provide media visual feedback from Megadrive, SNES, Gameboy and Dreamcast)
+- Added tooltips here & there
+- Added "ss" in default region list to get ScreenScrapers' arcade custom box
+- Changed tooltips visual
+- Fixed crash when auto-update fails to download update files
+- Fixed Internal RBv1/RBv2 mixes viewports (Square of 600x600 pixels)
+- Fixed miscellaneous tab scrollbar
+- Fixed wrong wheel selection in rare circumstances.
+- Fixed CRC32 byte ordering on FCRC files
+- Fixed system logo not always downloaded according to region preferences
+- Fixed files with wrong extentions being selected in some case
+- Fixed ommited subfolders.
+- Fixed LaunchBox xml root node name
+- Fixed some english & french typos
+- Fixed wrong system selection in case of 2+ folders scraped using the same system
+- Fixed some spanish translations
+- Fixed false "Error in system loop" when scraping from local cache
+- Fixed Skraper running forever when scraping 2+ systems when at least one empty system
+- Optimized Mix/User mix processing (improved memory cache)
+
+Bêta 3 - Hotfix1:
+- Fixed extentions configuration per system.
+- Fixed crash when scraping many subfolders.
+
+Bêta 3:
+- Added folder scraping in EmulationStation (only the simple image is working for now. Madia path hardcoded to ./media/folders)
+- Added cavestory folder in Recalbox wizard configuration
+- Added *.uae in default wizard extentions
+- Added auto-update features for future releases
+- Added auto-update logs
+- Added "Move article at the end of names" in metadata tab (working for fr,de,nl,en,it,sp,pt languages)
+- Swaped folder and system in "Games & Rom" tab. Changed "Selected system" into "Associated system" for better understanding.
+- Moved all logs into "Logs" subfolder
+- Modified Auto-Favorites/Hidden/Excludes words behavior
+    * Case insensitive
+    * Match whole words only. Use a '*' wildcard at start/end of words (but not both)
+    * Applied on filename if not scraped (not found in the ScreenScraper database) 
+    * Exemple: king of*|*riobross|1942|zAxXoN
+- Fixed gamelist.xml rom folder paths
+- Fixed rom path edit being not usable in Wizard, except with the [...] button
+- Fixed rom folder dialog being not able to select network paths
+- Fixed truncated texts in message-box
+- Fixed spain flag in Mix images
+- Fixed truncated checkboxes in metadata tab on low-resolutions screens
+- Fixed some missing french translations
+- Fixed 5 seconds lag when aborting a running scrap.
+- Fixed empty mix being saved and displayed.
+- Fixed application hanging when no rom found.
+- Fixed empty node in gamelist.xml files
+- Fixed node link being used even if not selected
+
+Bêta 2:
+- Improved scraping speed for multi-disk systems by randomizing file list.
+- Slightly increased 3D Box size in Integrated Mix
+- Added sound on/off button
+- Added tooltips on theme/sound buttons
+- Fixed errors when scraping with no media.
+- Fixed errors when resizing medias
+- Fixed finish sound played twice
+
+Bêta 1:
+- Fixed reordered rom regions.
+- Fixed Regions for LaunchBox
+- Fixed Game name selection
+- Huge optimization while processing archives with lot of files (DOS games, MAME, ...)
+
+Alpha 30:
+- Fixed extension case sensitivity.
+- Improved platform detection.
+- Reordered rom regions to match user region preference ordering: better media selection
+- Fixed Region2 selection in user mix
+- Record exception logs in File, even when Verbose mode is off
+- Improved scrap abortion when scraping large files (ISO, ...)
+- Added new rom folders for Recalbox 4.1
+
+Alpha 29:
+- Added Region1 and Region2 in user mix. Allow drawing of round region flags.
+- Fix some rare media mis-selections
+
+Alpha 28:
+- Obfuscated all login/password in logs
+- Fixed invalid logs leading to "Error in game loop" errors
+- Reduced set of extension for auto-detected scummvm/residualvm to avoid testing a bunch of unnecessary files
+- Changed extension editor in tab Games & Roms
+- Partial fix of ScummVM. Need feedback.
+
+Alpha 27:
+- Fixed system representation/selection in "Games & Roms" tab
+- Fixed selection of wheel/wheel-hd when both are available (same region)
+- Fixed game name selection that was ignoring the "Use rom regions first" flag
+- Fixed Recalbox segacd folder identified as gameboy
+- Auto-select best regions for countries: fr,de,du,it,sp,ch,se,dk,ch,be,jp,cn,kr,us,ru,au,br,ag,bo,cl,mx
+- Improved file scanner.
+- Improved Hash computation: Identify and log bad files or bad archives
+- Better error handling in gameloop

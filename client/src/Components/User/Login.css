@@ -1,0 +1,52 @@
+.loginForm {
+  width: 540px;
+  background: #44444430;
+  border-radius: 0 0 20px 20px;
+  margin: 0 auto;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  gap: 30px;
+  p {
+    text-align: center;
+    color: #aaa;
+    strong {
+      font-weight: 600;
+      color: #eee;
+    }
+  }
+  .input {
+    display: flex;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 0 16px 18px;
+      background: #161616;
+      img {
+        width: 25px;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.35));
+      }
+    }
+    input {
+      background: #161616;
+      padding: 14px 16px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0);
+      color: #aaa;
+
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+      transition: border-color 0.2s ease;
+      &::placeholder {
+        color: #404040;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+#root {
+  width: 100vw;
+  height: calc(100vw * 9 / 16); /* Ensures 16:9 aspect ratio */
+  transform-origin: top left;
+  overflow: hidden; /* Prevent overflow due to scaling */
+}

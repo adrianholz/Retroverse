@@ -1,0 +1,29 @@
+.skraper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #00000060;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .skraperContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    color: #aaa;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
+    font-size: 1.25rem;
+    strong {
+      font-weight: 600;
+      color: #eee;
+    }
+  }
+}
