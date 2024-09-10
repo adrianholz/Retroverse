@@ -22,12 +22,12 @@ const AudioProvider = () => {
     useContext(UserContext);
 
   useEffect(() => {
-    if (pauseSong) {
+    if (pauseSong || loading) {
       audioRef.current?.pause();
     } else {
       audioRef.current?.play();
     }
-  }, [pauseSong]);
+  }, [pauseSong, loading]);
 
   useEffect(() => {
     ipcRenderer.on("loading", (event, isLoading) => {
@@ -80,14 +80,14 @@ const AudioProvider = () => {
 
   useEffect(() => {
     if (hasMounted.current) {
-      if (audioRef.current && !pauseSong) {
+      if (audioRef.current && !pauseSong && !loading) {
         // Check if pauseSong is false
         audioRef.current.play(); // Auto-play the new song
       }
     } else {
       hasMounted.current = true;
     }
-  }, [song, pauseSong]); // Also listen to pauseSong changes
+  }, [song, pauseSong, loading]); // Also listen to pauseSong changes
 
   useEffect(() => {
     fetch("/music/songs.json")

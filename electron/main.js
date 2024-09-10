@@ -1,11 +1,16 @@
-const { app, BrowserWindow, ipcMain, shell, screen } = require("electron");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
+const https = require("https");
+const sevenZip = require("7zip-min");
 
-const retroarchPath = path.resolve(__dirname, "../client/public/retroarch");
+const retroarchPath = path.resolve(
+  __dirname,
+  "../client/public/RetroArch/RetroArch-Win64"
+);
 const romsPath = path.resolve(__dirname, "../client/public/roms");
-const skraperPath = path.resolve(__dirname, "../client/public/Skraper-1.1.1");
+const skraperPath = path.resolve(__dirname, "../client/public/Skraper");
 const songsPath = path.resolve(__dirname, "../client/public/music");
 const songsJsonOutput = path.resolve(
   __dirname,
@@ -38,14 +43,24 @@ const createWindow = () => {
 
   mainWindow.webContents.on("did-start-loading", handleStartLoading);
 
-  mainWindow.webContents.on("did-finish-load", () => {
-    mainWindow.webContents.send("activate-audio-provider");
+  ipcMain.once("programs-installed", () => {
     mainWindow.webContents.send("loading", false);
-
     mainWindow.webContents.removeListener(
       "did-start-loading",
       handleStartLoading
     );
+  });
+
+  mainWindow.webContents.on("did-finish-load", async () => {
+    await checkInstallation(
+      "RetroArch",
+      "https://buildbot.libretro.com/stable/1.19.1/windows/x86_64/RetroArch.7z"
+    );
+    await checkInstallation(
+      "Skraper",
+      "https://www.skraper.net/download/beta/Skraper-1.1.1.7z"
+    );
+    ipcMain.emit("programs-installed");
   });
 
   ipcMain.handle("open-directory", async (event, emulator) => {
@@ -65,6 +80,121 @@ const createWindow = () => {
       mainWindow.setSize(1280, 720); // Adjust size as needed
     }
   });
+
+  async function checkInstallation(program, url) {
+    if (
+      !fs.existsSync(path.resolve(__dirname, `../client/public/${program}`))
+    ) {
+      console.log(`${program} not found. Downloading...`);
+      await downloadProgram(program, url);
+      console.log(`${program} downloaded and extracted.`);
+      mainWindow.webContents.send("text", "");
+    } else {
+      console.log(`${program} is already installed.`);
+    }
+  }
+
+  // const checkRetroArchInstallation = async () => {
+  //   if (!fs.existsSync(retroarchPath)) {
+  //     console.log("RetroArch folder not found. Downloading...");
+  //     await downloadRetroArch();
+  //     console.log("RetroArch downloaded and extracted.");
+  //   } else {
+  //     console.log("RetroArch is already installed.");
+  //     ipcMain.emit("retroarch-installed");
+  //   }
+  // };
+
+  function downloadProgram(program, url) {
+    mainWindow.webContents.send("text", `Downloading ${program}...`);
+    const programDownloadPath = path.resolve(
+      __dirname,
+      `../client/public/${program}.7z`
+    );
+    return new Promise((resolve, reject) => {
+      const file = fs.createWriteStream(programDownloadPath);
+      https
+        .get(url, (response) => {
+          response.pipe(file);
+          file.on("finish", () => {
+            file.close(async () => {
+              await extractProgram(program, programDownloadPath);
+              fs.unlinkSync(programDownloadPath);
+              resolve();
+            });
+          });
+        })
+        .on("error", (err) => {
+          fs.unlink(programDownloadPath, () => {});
+          console.error("Download failed:", err);
+          reject(err);
+        });
+    });
+  }
+
+  // const downloadRetroArch = () => {
+  //   return new Promise((resolve, reject) => {
+  //     const file = fs.createWriteStream(retroarchDownloadPath);
+  //     https
+  //       .get(retroarchDownloadUrl, (response) => {
+  //         response.pipe(file);
+  //         file.on("finish", () => {
+  //           file.close(async () => {
+  //             await extractRetroArch();
+  //             fs.unlinkSync(retroarchDownloadPath); // Delete the .7z file after extraction
+  //             resolve();
+  //           });
+  //         });
+  //       })
+  //       .on("error", (err) => {
+  //         fs.unlink(retroarchDownloadPath, () => {}); // Clean up if error occurs
+  //         console.error("Download failed:", err);
+  //         reject(err);
+  //       });
+  //   });
+  // };
+
+  function extractProgram(program, programDownloadPath) {
+    mainWindow.webContents.send("text", `Extracting ${program}...`);
+
+    const extractPath = path.resolve(__dirname, `../client/public/${program}`);
+
+    return new Promise((resolve, reject) => {
+      // Use 7zip-min to extract the 7z archive
+      sevenZip.unpack(programDownloadPath, extractPath, (err) => {
+        if (err) {
+          console.error(`Error extracting ${program}:`, err);
+          reject(err);
+        } else {
+          console.log(`${program} extracted successfully.`);
+          resolve();
+        }
+      });
+    });
+  }
+
+  // const extractRetroArch = () => {
+  //   mainWindow.webContents.send("text", "Extracting RetroArch...");
+
+  //   const retroarchDownloadPath = path.resolve(
+  //     __dirname,
+  //     "../client/public/RetroArch.7z"
+  //   ); // Path to downloaded file
+  //   const extractPath = path.resolve(__dirname, "../client/public/RetroArch"); // Output folder
+
+  //   return new Promise((resolve, reject) => {
+  //     // Use 7zip-min to extract the 7z archive
+  //     sevenZip.unpack(retroarchDownloadPath, extractPath, (err) => {
+  //       if (err) {
+  //         console.error("Error extracting RetroArch:", err);
+  //         reject(err);
+  //       } else {
+  //         console.log("RetroArch extracted successfully.");
+  //         resolve();
+  //       }
+  //     });
+  //   });
+  // };
 };
 
 const extractMetadata = async (filePath) => {

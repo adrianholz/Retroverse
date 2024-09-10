@@ -10,14 +10,20 @@ const Loading = () => {
   const { language } = useContext(UserContext);
 
   const [loading, setLoading] = useState(true);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     ipcRenderer.on("loading", (event, isLoading) => {
       setLoading(isLoading);
     });
 
+    ipcRenderer.on("text", (event, textContent) => {
+      setText(textContent);
+    });
+
     return () => {
       ipcRenderer.removeAllListeners("loading");
+      ipcRenderer.removeAllListeners("text");
     };
   }, []);
 
@@ -77,6 +83,7 @@ const Loading = () => {
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
+        <p className="loadingText">{text}</p>
       </div>
     </>
   );

@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@retroachievements/api": "^2.1.0",
+    "7zip-min": "^1.4.5",
     "audiomotion-analyzer": "^4.5.0",
     "music-metadata": "^10.0.0",
     "node-fetch": "^3.3.2",

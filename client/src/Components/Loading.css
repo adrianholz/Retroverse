@@ -45,6 +45,14 @@
   }
 }
 
+.loadingText {
+  color: #aaa;
+  font-size: 1.25rem;
+  position: absolute;
+  bottom: 50px;
+  opacity: 0.5;
+}
+
 @keyframes spin {
   100% {
     transform: rotate(1turn) translate(var(--o)) rotate(-1turn);
