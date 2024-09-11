@@ -210,11 +210,11 @@
       }
     }
   },
-  "genesis": {
-    "name": "genesis",
-    "title": "Genesis",
+  "megadrive": {
+    "name": "megadrive",
+    "title": "Megadrive",
     "core": "genesis_plus_gx",
-    "emulatorDat": "Genesis",
+    "emulatorDat": "Megadrive",
     "styles": {
       "swiperslide": {
         "maxWidth": "490px",
@@ -516,8 +516,8 @@
       }
     }
   },
-  "wonderswan": {
-    "name": "wonderswan",
+  "wswan": {
+    "name": "wswan",
     "title": "Wonderswan",
     "core": "mednafen_wswan",
     "emulatorDat": "WonderSwan",
@@ -532,8 +532,8 @@
       }
     }
   },
-  "wscolor": {
-    "name": "wscolor",
+  "wswanc": {
+    "name": "wswanc",
     "title": "Wonderswan Color",
     "core": "mednafen_wswan",
     "emulatorDat": "WonderSwan Color",
@@ -569,8 +569,8 @@
       }
     }
   },
-  "fba": {
-    "name": "fba",
+  "fbneo": {
+    "name": "fbneo",
     "title": "Final Burn Neo",
     "core": "fbneo",
     "emulatorDat": "Mame",
@@ -606,9 +606,9 @@
       }
     }
   },
-  "aes": {
-    "name": "aes",
-    "title": "Neo Geo AES",
+  "neogeo": {
+    "name": "neogeo",
+    "title": "Neo-Geo",
     "core": "fbalpha2012_neogeo",
     "emulatorDat": "Neo-Geo",
     "styles": {
@@ -624,7 +624,7 @@
   },
   "neogeocd": {
     "name": "neogeocd",
-    "title": "Neo Geo CD",
+    "title": "Neo-Geo CD",
     "core": "neocd",
     "emulatorDat": "Neo-Geo CD",
     "styles": {
@@ -643,9 +643,9 @@
       }
     }
   },
-  "neogeo": {
-    "name": "neogeo",
-    "title": "Neo Geo Pocket",
+  "ngp": {
+    "name": "ngp",
+    "title": "Neo-Geo Pocket",
     "core": "mednafen_ngp",
     "emulatorDat": "Neo-Geo Pocket",
     "styles": {
@@ -664,9 +664,9 @@
       }
     }
   },
-  "neogeocolor": {
-    "name": "neogeocolor",
-    "title": "Neo Geo Pocket Color",
+  "ngpc": {
+    "name": "ngpc",
+    "title": "Neo-Geo Pocket Color",
     "core": "mednafen_ngp",
     "emulatorDat": "Neo-Geo Pocket Color",
     "styles": {
@@ -974,8 +974,8 @@
       }
     }
   },
-  "odyssey2": {
-    "name": "odyssey2",
+  "o2em": {
+    "name": "o2em",
     "title": "Videopac/Odyssey²",
     "core": "o2em",
     "emulatorDat": "Magnavox Odyssey²",
@@ -1053,8 +1053,8 @@
       }
     }
   },
-  "cpc": {
-    "name": "cpc",
+  "amstradcpc": {
+    "name": "amstradcpc",
     "title": "Amstrad CPC",
     "core": "cap32",
     "emulatorDat": "CPC",

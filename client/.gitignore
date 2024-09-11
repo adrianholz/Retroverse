@@ -14,6 +14,10 @@ node_modules
 dist
 dist-ssr
 *.local
+RetroArch
+RetroArch/*
+Skraper
+roms
 
 # Editor directories and files
 .vscode/*

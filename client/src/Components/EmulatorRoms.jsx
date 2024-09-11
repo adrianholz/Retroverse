@@ -23,6 +23,7 @@ const EmulatorRoms = () => {
   const [emulatorDat, setEmulatorDat] = useState("");
   const [rawXml, setRawXml] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [error, setError] = useState(false);
   const [boxArt, setBoxArt] = useState(false);
   const [video, setVideo] = useState(false);
   const [imagesMix, setImagesMix] = useState(false);
@@ -279,8 +280,14 @@ const EmulatorRoms = () => {
       handleRetroArchClosed();
     });
 
+    ipcRenderer.on("retroarch-failed", () => {
+      console.log(`RetroArch process failed to open`);
+      setError(true);
+    });
+
     return () => {
       ipcRenderer.removeAllListeners("retroarch-closed");
+      ipcRenderer.removeAllListeners("retroarch-failed");
     };
   }, []);
 
@@ -372,6 +379,56 @@ const EmulatorRoms = () => {
             </button>
           </motion.div>
           <div className="container">
+            <div
+              className="initError"
+              onClick={() => setError(false)}
+              style={
+                error
+                  ? { opacity: "1", pointerEvents: "unset" }
+                  : { opacity: "0", pointerEvents: "none" }
+              }
+            >
+              <div>
+                <h2>{lang.emulatorRoms[language].initialization}</h2>
+                <span>{lang.emulatorRoms[language].gameFailed}</span>
+                <ol>
+                  <li>
+                    {lang.emulatorRoms[language].step1_1}
+                    <strong>{title}</strong>
+                    {lang.emulatorRoms[language].step1_2}
+                  </li>
+                  <li>
+                    {lang.emulatorRoms[language].step2_1}
+                    <strong>{core}</strong>
+                    {lang.emulatorRoms[language].step2_2}
+                    <strong>{emulatorDat}</strong>
+                    {lang.emulatorRoms[language].step2_3}(
+                    <img src="/assets/svg/gear.svg" />
+                    ).
+                  </li>
+                  <li>
+                    {lang.emulatorRoms[language].step3_1}
+                    <strong>{core}</strong>
+                    {lang.emulatorRoms[language].step3_2}
+                    <strong>{emulatorDat}</strong>
+                    {lang.emulatorRoms[language].step3_3}
+                    <strong>emulators.json</strong>
+                    {lang.emulatorRoms[language].step3_4}
+                  </li>
+                  <li>
+                    {lang.emulatorRoms[language].step4_1}
+                    <strong>{core}</strong>
+                    {lang.emulatorRoms[language].step4_2}
+                  </li>
+                  <li>
+                    {lang.emulatorRoms[language].step5_1}
+                    <strong>{emulatorDat}</strong>
+                    {lang.emulatorRoms[language].step5_2}
+                  </li>
+                </ol>
+              </div>
+            </div>
+
             {title && (
               <video
                 src={getVideoSrc(title?.replace(/\.[^/.]+$/, "") || "")}

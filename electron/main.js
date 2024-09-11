@@ -288,10 +288,29 @@ ipcMain.on("run-retroarch", (event, core, title, emulator) => {
     shell: false,
   });
 
+  const startTime = Date.now(); // Capture the start time
+  const timeoutThreshold = 5000; // Set a threshold in milliseconds (e.g., 5 seconds)
+
   retroarchProcess.on("close", (code) => {
-    console.log(`RetroArch process exited with code ${code}`);
+    const endTime = Date.now(); // Capture the end time
+    const duration = endTime - startTime; // Calculate the time difference
+
     const mainWindow = BrowserWindow.getAllWindows()[0];
-    mainWindow.webContents.send("retroarch-closed", code);
+
+    if (duration < timeoutThreshold) {
+      // Process closed too quickly, send an error message
+      console.log(
+        `RetroArch closed too quickly (in ${duration}ms), something went wrong.`
+      );
+      mainWindow.webContents.send("retroarch-closed", code);
+      mainWindow.webContents.send("retroarch-failed", { code, duration });
+    } else {
+      // Process closed after running normally
+      console.log(
+        `RetroArch process exited with code ${code} after ${duration}ms`
+      );
+      mainWindow.webContents.send("retroarch-closed", code);
+    }
   });
 });
 
