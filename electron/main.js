@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const fs = require("fs");
 const path = require("path");
-const { spawn } = require("child_process");
+const { spawn, exec } = require("child_process");
 const https = require("https");
 const sevenZip = require("7zip-min");
 
@@ -268,6 +268,10 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
+});
+
+ipcMain.on("run-retroarch-config", () => {
+  exec(`${retroarchPath}\\retroarch.exe`);
 });
 
 ipcMain.on("run-retroarch", (event, core, title, emulator) => {

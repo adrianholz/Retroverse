@@ -189,8 +189,8 @@
       }
     }
   },
-  "ds3": {
-    "name": "ds3",
+  "3ds": {
+    "name": "3ds",
     "title": "Nintendo 3DS",
     "core": "citra",
     "emulatorDat": "Nintendo 3DS",
@@ -463,8 +463,8 @@
       }
     }
   },
-  "od3": {
-    "name": "od3",
+  "3do": {
+    "name": "3do",
     "title": "Panasonic 3DO",
     "core": "opera",
     "emulatorDat": "3DO",

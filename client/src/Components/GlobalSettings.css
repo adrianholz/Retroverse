@@ -169,6 +169,43 @@
         font-weight: 400;
         color: #aaa;
       }
+      .softwares {
+        ul {
+          list-style-type: none;
+          li {
+            cursor: pointer;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            max-width: 170px;
+            border-radius: 10px;
+            background: linear-gradient(
+              to bottom right,
+              rgba(35, 35, 35, 0.85),
+              rgba(22, 22, 22, 0.65)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 18px;
+            color: #aaa;
+            font-weight: 500;
+            outline: none;
+            backdrop-filter: blur(5px);
+            transition: 0.2s ease;
+            &:hover {
+              color: #fff;
+              border: 1px solid white;
+              img {
+                filter: brightness(200%);
+              }
+            }
+            img {
+              max-width: 40px;
+              transition: filter 0.2s ease;
+            }
+          }
+        }
+      }
       .screen {
         ul {
           list-style-type: none;
@@ -190,7 +227,8 @@
             outline: none;
             backdrop-filter: blur(5px);
             transition: 0.2s ease;
-            &.active {
+            &.active,
+            &:hover {
               color: #fff;
               border: 1px solid white;
             }

@@ -426,6 +426,19 @@ const GlobalSettings = () => {
             </div>
           </DragDropContext>
           <div className="langScreen">
+            <div className="softwares">
+              <h2>Softwares</h2>
+              <ul>
+                <li
+                  onClick={() => {
+                    ipcRenderer.send("run-retroarch-config");
+                  }}
+                >
+                  <img src={"/assets/svg/Retroarch.svg"} alt="Retroarch" />
+                  <p>RetroArch</p>
+                </li>
+              </ul>
+            </div>
             <div className="screen">
               <h2>{lang.globalSettings[language].screen}</h2>
               <ul>
