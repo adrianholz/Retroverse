@@ -24,6 +24,7 @@ const EmulatorRoms = () => {
   const [rawXml, setRawXml] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const [error, setError] = useState(false);
+  const [opacity, setOpacity] = useState(0);
   const [boxArt, setBoxArt] = useState(false);
   const [video, setVideo] = useState(false);
   const [imagesMix, setImagesMix] = useState(false);
@@ -275,6 +276,14 @@ const EmulatorRoms = () => {
   }
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpacity(1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     ipcRenderer.on("retroarch-closed", (event, code) => {
       console.log(`RetroArch process closed with code ${code}`);
       handleRetroArchClosed();
@@ -360,7 +369,13 @@ const EmulatorRoms = () => {
         <div id="stars3"></div>
       </div>
 
-      <div className="romsContainer">
+      <div
+        className="romsContainer"
+        style={{
+          opacity: opacity,
+          transition: "opacity 1s",
+        }}
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

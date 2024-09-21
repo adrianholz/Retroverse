@@ -24,10 +24,7 @@
 }
 
 .romsContainer {
-  opacity: 0;
-  animation: romsIntro 1s ease;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
+  opacity: 1;
   height: 100%;
 }
 
@@ -585,14 +582,5 @@
   100% {
     opacity: 0;
     transform: translateX(-600px);
-  }
-}
-
-@keyframes romsIntro {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

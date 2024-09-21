@@ -44,6 +44,17 @@
         "maxWidth": "200px",
         "left": "55px",
         "marginTop": "-15px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "150px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
       }
     }
   },
@@ -60,6 +71,10 @@
       "gameInfo": {
         "right": "-103%",
         "bottom": "0px"
+      },
+      "video": {
+        "maxWidth": "180px",
+        "left": "260px"
       }
     }
   },
@@ -81,6 +96,10 @@
         "maxWidth": "170px",
         "left": "60px",
         "marginTop": "-5px"
+      },
+      "video": {
+        "maxWidth": "200px",
+        "left": "250px"
       }
     }
   },
@@ -102,6 +121,9 @@
         "maxWidth": "175px",
         "left": "65px",
         "marginTop": "-10px"
+      },
+      "video": {
+        "left": "250px"
       }
     }
   },
@@ -123,6 +145,17 @@
         "maxWidth": "170px",
         "left": "70px",
         "marginTop": "-10px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "150px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
       }
     }
   },
@@ -545,48 +578,6 @@
       "gameInfo": {
         "right": "-99%",
         "bottom": "0"
-      }
-    }
-  },
-  "mame": {
-    "name": "mame",
-    "title": "MAME",
-    "core": "mame",
-    "emulatorDat": "Mame",
-    "styles": {
-      "swiperslide": {
-        "maxWidth": "470px",
-        "transform": "translateY(94%)"
-      },
-      "gameInfo": {
-        "right": "-105%",
-        "bottom": "20px"
-      },
-      "logo": {
-        "maxWidth": "200px",
-        "left": "55px",
-        "marginTop": "-15px"
-      }
-    }
-  },
-  "fbneo": {
-    "name": "fbneo",
-    "title": "Final Burn Neo",
-    "core": "fbneo",
-    "emulatorDat": "Mame",
-    "styles": {
-      "swiperslide": {
-        "maxWidth": "470px",
-        "transform": "translateY(94%)"
-      },
-      "gameInfo": {
-        "right": "-105%",
-        "bottom": "20px"
-      },
-      "logo": {
-        "maxWidth": "150px",
-        "left": "80px",
-        "marginTop": "0"
       }
     }
   },

@@ -16,7 +16,6 @@ const songsJsonOutput = path.resolve(
   __dirname,
   "../client/public/music/songs.json"
 );
-process.env.PATH += `${retroarchPath}`;
 
 app.commandLine.appendSwitch("disable-http-cache");
 
@@ -94,17 +93,6 @@ const createWindow = () => {
     }
   }
 
-  // const checkRetroArchInstallation = async () => {
-  //   if (!fs.existsSync(retroarchPath)) {
-  //     console.log("RetroArch folder not found. Downloading...");
-  //     await downloadRetroArch();
-  //     console.log("RetroArch downloaded and extracted.");
-  //   } else {
-  //     console.log("RetroArch is already installed.");
-  //     ipcMain.emit("retroarch-installed");
-  //   }
-  // };
-
   function downloadProgram(program, url) {
     mainWindow.webContents.send("text", `Downloading ${program}...`);
     const programDownloadPath = path.resolve(
@@ -132,28 +120,6 @@ const createWindow = () => {
     });
   }
 
-  // const downloadRetroArch = () => {
-  //   return new Promise((resolve, reject) => {
-  //     const file = fs.createWriteStream(retroarchDownloadPath);
-  //     https
-  //       .get(retroarchDownloadUrl, (response) => {
-  //         response.pipe(file);
-  //         file.on("finish", () => {
-  //           file.close(async () => {
-  //             await extractRetroArch();
-  //             fs.unlinkSync(retroarchDownloadPath); // Delete the .7z file after extraction
-  //             resolve();
-  //           });
-  //         });
-  //       })
-  //       .on("error", (err) => {
-  //         fs.unlink(retroarchDownloadPath, () => {}); // Clean up if error occurs
-  //         console.error("Download failed:", err);
-  //         reject(err);
-  //       });
-  //   });
-  // };
-
   function extractProgram(program, programDownloadPath) {
     mainWindow.webContents.send("text", `Extracting ${program}...`);
 
@@ -172,29 +138,6 @@ const createWindow = () => {
       });
     });
   }
-
-  // const extractRetroArch = () => {
-  //   mainWindow.webContents.send("text", "Extracting RetroArch...");
-
-  //   const retroarchDownloadPath = path.resolve(
-  //     __dirname,
-  //     "../client/public/RetroArch.7z"
-  //   ); // Path to downloaded file
-  //   const extractPath = path.resolve(__dirname, "../client/public/RetroArch"); // Output folder
-
-  //   return new Promise((resolve, reject) => {
-  //     // Use 7zip-min to extract the 7z archive
-  //     sevenZip.unpack(retroarchDownloadPath, extractPath, (err) => {
-  //       if (err) {
-  //         console.error("Error extracting RetroArch:", err);
-  //         reject(err);
-  //       } else {
-  //         console.log("RetroArch extracted successfully.");
-  //         resolve();
-  //       }
-  //     });
-  //   });
-  // };
 };
 
 const extractMetadata = async (filePath) => {
