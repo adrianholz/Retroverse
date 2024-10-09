@@ -33,7 +33,7 @@ const Loading = () => {
         className="loadingApp"
         style={
           loading
-            ? { opacity: 1, pointerEvents: "unset" }
+            ? { opacity: 0, pointerEvents: "none" }
             : { opacity: 0, pointerEvents: "none" }
         }
       >

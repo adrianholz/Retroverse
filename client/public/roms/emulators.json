@@ -150,10 +150,10 @@
         "animation": "2.59s ease-in-out infinite alternate",
         "keyframes": {
           "0%": {
-            "left": "150px"
+            "left": "140px"
           },
           "100%": {
-            "left": "390px"
+            "left": "380px"
           }
         }
       }
@@ -177,6 +177,17 @@
         "maxWidth": "200px",
         "left": "50px",
         "marginTop": "-25px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "350px"
+          }
+        }
       }
     }
   },
@@ -198,6 +209,18 @@
         "maxWidth": "220px",
         "left": "40px",
         "marginTop": "-30px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "140px",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "360px"
+          }
+        }
       }
     }
   },
@@ -219,6 +242,18 @@
         "maxWidth": "150px",
         "left": "80px",
         "marginTop": "5px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "150px",
+        "keyframes": {
+          "0%": {
+            "left": "135px"
+          },
+          "100%": {
+            "left": "350px"
+          }
+        }
       }
     }
   },
